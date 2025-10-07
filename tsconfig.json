@@ -13,6 +13,7 @@
     "moduleResolution": "node",
 
     /* === 출력 관련 === */
+    "removeComments": true,
     "sourceMap": false,
     "declaration": false,
     "declarationMap": false,
