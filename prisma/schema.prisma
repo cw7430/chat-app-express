@@ -10,20 +10,22 @@ datasource db {
 }
 
 model User {
-  userId   BigInt    @id @default(autoincrement()) @map("user_id")
-  nickName String    @map("nick_name") @db.VarChar(255)
-  messages Message[] @relation("UserMessages")
+  userId   BigInt  @id @default(autoincrement()) @map("user_id")
+  nickName String  @map("nick_name") @db.VarChar(255)
+  token    String  @db.VarChar(255)
+  isOnline Boolean @default(false) @map("is_online")
+  chats    Chat[]  @relation("UserChats")
 
   @@map("user")
   @@schema("auth")
 }
 
-model Message {
-  messageId BigInt  @id @default(autoincrement()) @map("message_id")
-  userId    BigInt? @map("user_id")
-  chat      String  @db.VarChar(255)
-  user      User?   @relation("UserMessages", fields: [userId], references: [userId], onDelete: Cascade, map: "fk_message_user")
+model Chat {
+  chatId  BigInt @id @default(autoincrement()) @map("chat_id")
+  userId  BigInt @map("user_id")
+  message String @db.VarChar(255)
+  user    User   @relation("UserChats", fields: [userId], references: [userId], onDelete: Cascade, map: "fk_chat_user")
 
-  @@map("message")
+  @@map("chat")
   @@schema("chat")
 }
