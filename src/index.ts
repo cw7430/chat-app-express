@@ -1,14 +1,12 @@
 import { createServer } from "http";
-import dotenv from "dotenv";
 import { Server } from "socket.io";
 
 import app from "./app";
+import { config } from "./config";
 import connectClient from "./utils/io";
 
-dotenv.config();
-
-const PORT = process.env.PORT || 5000;
-const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
+const PORT = config.PORT;
+const FRONTEND_URL = config.FRONTEND_URL;
 
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
