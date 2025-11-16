@@ -13,3 +13,6 @@ export const chatResponseSchema = z.object({
   nickName: z.string(),
   message: z.string(),
 });
+
+export type ChatRequestDto = z.infer<typeof chatRequestSchema>;
+export type ChatResponseDto = z.infer<typeof chatResponseSchema>;
