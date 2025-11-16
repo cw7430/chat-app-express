@@ -8,7 +8,7 @@ dotenv.config();
 dotenv.config({ path: `.env.${process.env.NODE_ENV || "local"}` });
 
 export default defineConfig({
-  schema: ["./src/entities/user.ts", "./src/entities/chat.ts"],
+  schema: ["./src/entities/auth.ts", "./src/entities/chat.ts"],
   out: "./drizzle",
   dialect: "mysql",
 
