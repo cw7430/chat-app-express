@@ -8,7 +8,7 @@ export const chatRequestSchema = z.object({
 });
 
 export const chatResponseSchema = z.object({
-  chatId: zBigIntToString,
+  id: zBigIntToString,
   userId: zBigIntToString,
   nickName: z.string(),
   message: z.string(),

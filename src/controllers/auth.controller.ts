@@ -15,7 +15,7 @@ const authController = {
       throw new Error("User creation failed unexpectedly");
     }
 
-    await authRepository.updateUserStatus(BigInt(user.userId), token, true);
+    await authRepository.updateUserStatus(BigInt(user.id), token, true);
 
     return user;
   },

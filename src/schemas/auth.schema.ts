@@ -7,7 +7,7 @@ export const loginRequestSchema = z.object({
 });
 
 export const userResponseSchema = z.object({
-  userId: zBigIntToString,
+  id: zBigIntToString,
   nickName: z.string(),
   token: z.string(),
   isOnline: z.boolean(),

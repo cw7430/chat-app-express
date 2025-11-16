@@ -15,6 +15,10 @@ const connectClient = (io: Server) => {
         cb({ ok: false, error: error.message });
       }
     });
+
+    socket.on("disconnect", () => {
+      console.log("client disconnected", socket.id);
+    });
   });
 };
 
